@@ -44,6 +44,12 @@ class Mpifileutils(Package):
     depends_on('libarchive')
     depends_on('libarchive@3.5.1:', when='@0.11:')
 
+    depends_on('bzip2')
+
+    depends_on('libcap')
+
+    depends_on('openssl')
+
     depends_on('cmake@3.1:', when='@0.9:', type='build')
 
     variant('xattr', default=True,
