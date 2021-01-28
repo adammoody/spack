@@ -38,7 +38,11 @@ class Mpifileutils(Package):
     depends_on('dtcmp@1.0.3',  when='@:0.7')
     depends_on('dtcmp@1.1.0:', when='@0.8:')
 
+    # fixes were added to libarchive somewhere between 3.1.2 and 3.5.0
+    # which helps with file names that start with "._", bumping to newer
+    # libarchive, but in a way that does not disrupt older mpiFileUtils installs
     depends_on('libarchive')
+    depends_on('libarchive@3.5.1:', when='@0.11:')
 
     depends_on('cmake@3.1:', when='@0.9:', type='build')
 
